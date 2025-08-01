@@ -1,0 +1,17 @@
+name: Checkout Workflow
+on: [push]
+
+jobs:
+  checkout-and-display:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List Files Before Checkout
+        run: ls -a
+      - name: Checkout
+        run: |
+          git init
+          git add remote origin "https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git"
+          git fetch origin 
+          git checkout main
+      - name: List Files After Checkout
+        run: ls -a
