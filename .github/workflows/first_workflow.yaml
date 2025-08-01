@@ -26,5 +26,5 @@ jobs:
     steps:
       - name: echo a message
         run: Write-Output "Hello from Windows!"
-      - name: Error Steps
-        run: doesnotexist
+      - name: test debugging
+        run: doesitwor
