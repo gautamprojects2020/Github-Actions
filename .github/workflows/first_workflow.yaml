@@ -11,3 +11,20 @@ jobs:
         run: |
           node -v
           npm -v
+  parallel-job-macos:
+    runs-on: macos-latest
+    steps:
+      - name: echo a message
+        run: echo "Hello from macOS!"
+      - name: Multiple commands
+        run: |
+          sw_vers
+          xcodebuild -version
+  dependent-job:
+    runs-on: windows-latest
+    needs: run-shells-commands
+    steps:
+      - name: echo a message
+        run: Write-Output "Hello from Windows!"
+      - name: Error Steps
+        run: doesnotexist
