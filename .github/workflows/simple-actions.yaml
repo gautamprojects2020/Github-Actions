@@ -1,0 +1,14 @@
+name: Simple Actions Workflow
+on: [push]
+
+jobs:
+  simple_action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simple JS Action
+        id: greet
+        uses: actions/hello-world-javascript-action@dbe1f88d9b1570887503eda0203a569f45a78f29
+        with:
+          who-to-greet: "Mona the Octocat"
+      - name: Log Greeting Time
+        run: echo "${{ steps.greet.outputs.greeting }} at $(date +'%Y-%m-%d %H:%M:%S')"
