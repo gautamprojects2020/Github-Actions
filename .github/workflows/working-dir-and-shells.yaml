@@ -1,0 +1,28 @@
+name: Working Directory and Shells
+on: [push]
+
+jobs:
+  display-wd-info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display Working Directory and List Files
+        run: |
+          pwd
+          ls -la
+          echo "Current Shell: $SHELL"
+          echo "Shell Version: $BASH_VERSION"
+          echo $GITHUB_SHA
+          echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
+          echo "GITHUB_REPOSITORY: $GITHUB_REPOSITORY"
+  display-wd-info-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Display Working Directory and List Files
+        run: |
+          pwd
+          ls -la
+          echo "Current Shell: $SHELL"
+          echo "Shell Version: $BASH_VERSION"
+          echo $GITHUB_SHA
+          echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
+          echo "GITHUB_REPOSITORY: $GITHUB_REPOSITORY"
