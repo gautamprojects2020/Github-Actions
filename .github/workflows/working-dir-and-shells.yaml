@@ -1,5 +1,8 @@
 name: Working Directory and Shells
 on: [push]
+defaults:
+  run:
+    shell: bash
 
 jobs:
   display-wd-info:
@@ -14,8 +17,16 @@ jobs:
           echo $GITHUB_SHA
           echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
           echo "GITHUB_REPOSITORY: $GITHUB_REPOSITORY"
+      - name: Change Working
+        working-directory: /home/runner
+        run: |
+          echo "Changed working directory to /home/runner"
+          pwd
   display-wd-info-windows:
     runs-on: windows-latest
+    defaults:
+      run:
+        shell: pwsh
     steps:
       - name: Display Working Directory and List Files
         run: |
@@ -23,3 +34,8 @@ jobs:
           dir
           echo "GITHUB_WORKSPACE: $env:GITHUB_WORKSPACE"
           echo "GITHUB_REPOSITORY: $env:GITHUB_REPOSITORY"
+      - name: Python Shell
+        shell: python
+        run: |
+          import platform
+          print("Python Version:", platform.python_version())
