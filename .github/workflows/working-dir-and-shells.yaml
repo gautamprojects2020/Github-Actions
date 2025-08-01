@@ -19,10 +19,7 @@ jobs:
     steps:
       - name: Display Working Directory and List Files
         run: |
-          pwd
-          ls -la
-          echo "Current Shell: $SHELL"
-          echo "Shell Version: $BASH_VERSION"
-          echo $GITHUB_SHA
-          echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
-          echo "GITHUB_REPOSITORY: $GITHUB_REPOSITORY"
+          Get-Location
+          dir
+          echo "GITHUB_WORKSPACE: $env:GITHUB_WORKSPACE"
+          echo "GITHUB_REPOSITORY: $env:GITHUB_REPOSITORY"
