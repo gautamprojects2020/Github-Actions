@@ -27,4 +27,4 @@ jobs:
       - name: echo a message
         run: Write-Output "Hello from Windows!"
       - name: test debugging
-        run: doesitwor
+        run: doesitwo
