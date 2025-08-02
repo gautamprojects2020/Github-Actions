@@ -1,6 +1,12 @@
 name: Manaually Triggered Workflow
 on:
   workflow_dispatch:
+    inputs:
+      message:
+        description: "Message to display when the workflow is triggered"
+        type: string
+        required: true
+        default: "Deault message"
 
 jobs:
   manually-triggered-job:
