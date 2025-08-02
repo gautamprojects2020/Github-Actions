@@ -1,0 +1,16 @@
+name: Stale Workflow
+on:
+  schedule:
+    - cron: "0 14 * * *" # Runs daily at midnight
+    - cron: "0/5 * * * *" # Runs weekly on Sundays
+  workflow_dispatch:
+
+jobs:
+  stale-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v3
+        with:
+          stale-issue-message: "This issue has been automatically marked as stale because it has not had recent activity. It will be closed in 7 days if no further activity occurs."
+          days-before-stale: 1
+          days-before-close: 5
