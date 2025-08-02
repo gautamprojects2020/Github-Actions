@@ -7,6 +7,29 @@ on:
         type: string
         required: true
         default: "Deault message"
+      number:
+        description: "A number input"
+        type: number
+        required: false
+        default: 42
+      option:
+        description: "An option input"
+        type: choice
+        options:
+          - option1
+          - option2
+          - option3
+        required: true
+      boolean:
+        description: "A boolean input"
+        type: boolean
+        required: false
+        default: true
+      environment:
+        description: "An environment input"
+        type: environment
+        required: false
+        default: "production"
 
 jobs:
   manually-triggered-job:
@@ -14,3 +37,10 @@ jobs:
     steps:
       - name: Echo a Message
         run: echo "This workflow was manually triggered."
+      - name: Display Inputs
+        run: |
+          echo "Message: ${{ github.event.inputs.message }}"
+          echo "Number: ${{ github.event.inputs.number }}"
+          echo "Option: ${{ github.event.inputs.option }}"
+          echo "Boolean: ${{ github.event.inputs.boolean }}"
+          echo "Environment: ${{ github.event.inputs.environment }}"
