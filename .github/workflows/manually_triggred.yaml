@@ -25,11 +25,6 @@ on:
         type: boolean
         required: false
         default: true
-      environment:
-        description: "An environment input"
-        type: environment
-        required: false
-        default: "production"
 
 jobs:
   manually-triggered-job:
@@ -43,4 +38,3 @@ jobs:
           echo "Number: ${{ github.event.inputs.number }}"
           echo "Option: ${{ github.event.inputs.option }}"
           echo "Boolean: ${{ github.event.inputs.boolean }}"
-          echo "Environment: ${{ github.event.inputs.environment }}"
