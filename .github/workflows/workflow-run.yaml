@@ -1,0 +1,13 @@
+name: Workflow Run
+on:
+  workflow_run:
+    workflows: ["Checkout Workflow"]
+    types:
+      - completed
+
+jobs:
+  run-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo a string
+        run: echo "This workflow runs after Checkout Workflow completes."
