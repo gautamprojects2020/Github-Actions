@@ -7,10 +7,6 @@ on:
       - "!feature/test"
     tags:
       - "v*"
-    paths:
-      - "src/**"
-      - "!docs/**"
-
 jobs:
   branch-action:
     runs-on: ubuntu-latest
