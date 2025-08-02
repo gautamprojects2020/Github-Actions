@@ -1,0 +1,26 @@
+name: Expression and Context Workflow
+on: [push, workflow_dispatch]
+
+jobs:
+  expression-and-context:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        id: expression
+        run: |
+          echo ${{ 1}}
+          echo ${{ 'Hello GithubActions' }}
+          echo ${{ true }}
+          echo ${{ 1 > 2 }}
+          echo ${{ 1 < 2 }}
+          echo ${{ true && false }}
+          echo ${{ true || (false && true) }}
+          echo ${{ 'Hello' == 'Hello' }}
+          echo ${{ null }}
+      - name: Context
+        run: |
+          echo ${{ toJson(github) }}
+          echo ${{ toJson(job) }}
+          echo ${{ toJson(secrets) }}
+          echo ${{ toJson(steps) }}
+          echo ${{ toJson(runner) }}
