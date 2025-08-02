@@ -1,0 +1,19 @@
+name: Branch Workflow
+on:
+  push:
+    branches:
+      - main
+      - "feature/*"
+      - "!feature/test"
+    tags:
+      - "v*"
+    paths:
+      - "src/**"
+      - "!docs/**"
+
+jobs:
+  branch-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List Files Before Checkout
+        run: echo "Files before checkout:"
